@@ -1,0 +1,23 @@
+install:
+  - npm install --quiet
+  - npm install phantomjs --quiet
+script:
+  - npm test
+docker:
+  socketPath: /var/run/docker.sock
+targets:
+  ubuntu:
+    tags:
+      - "14.04"
+      - "15.10"
+    install:
+      - apt-get update -qq
+      - apt-get upgrade -y -qq
+      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig -y -qq
+  fedora:
+    tags:
+      - "22"
+      - "23"
+    install:
+      - dnf update -y -q
+      - dnf install @development-tools node npm bzip2 tar fontconfig freetype -y -q

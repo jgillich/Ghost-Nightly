@@ -1,0 +1,13 @@
+language: node_js
+sudo: required
+services:
+  - docker
+install:
+  - npm install -g chimera-cli
+  - git clone https://github.com/TryGhost/Ghost.git --depth 1 --recursive
+script:
+  - chimera -p Ghost/
+env:
+  matrix:
+    - CHIMERA_TARGET=ubuntu
+    - CHIMERA_TARGET=fedora
