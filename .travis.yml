@@ -9,5 +9,11 @@ script:
   - chimera -p Ghost/
 env:
   matrix:
-    - CHIMERA_TARGET=ubuntu
-    - CHIMERA_TARGET=fedora
+    - CHIMERA_TARGET=ubuntu:14.04
+    - CHIMERA_TARGET=ubuntu:15.10
+    - CHIMERA_TARGET=fedora:22
+    - CHIMERA_TARGET=fedora:23
+    - CHIMERA_TARGET=centos:7
+    - CHIMERA_TARGET=opensuse:13.2
+    - CHIMERA_TARGET=debian:8
+    - CHIMERA_TARGET=arch:latest

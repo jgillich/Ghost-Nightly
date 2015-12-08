@@ -21,3 +21,30 @@ targets:
     install:
       - dnf update -y -q
       - dnf install @development-tools node npm bzip2 tar fontconfig freetype -y -q
+  centos:
+    tags:
+      - "7"
+    install:
+      - yum update -y -q
+      - yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{tag}}.noarch.rpm -y -q
+      - yum install @development nodejs npm bzip2 tar fontconfig freetype -y -q
+  opensuse:
+    tags:
+      - "13.2"
+    install:
+      - zypper -n update
+      - zypper -n install gcc gcc-c++ make git nodejs npm bzip2 tar fontconfig freetype ca-certificates-mozilla
+  debian:
+    tags:
+      - "8"
+    install:
+      - apt-get update -qq
+      - apt-get upgrade -y -qq
+      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig -y -qq
+  arch:
+    tags:
+      - "latest"
+    image: l3iggs/archlinux
+    install:
+      - pacman -Syu --noconfirm
+      - pacman -S base-devel git nodejs npm bzip2 tar fontconfig freetype2 python2 python --noconfirm
