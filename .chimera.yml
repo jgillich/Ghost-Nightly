@@ -48,3 +48,5 @@ targets:
     install:
       - pacman -Syu --noconfirm
       - pacman -S base-devel git nodejs npm bzip2 tar fontconfig freetype2 python2 python --noconfirm
+    env:
+      - GHOST_NODE_VERSION_CHECK=false
