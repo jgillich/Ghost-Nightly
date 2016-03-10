@@ -13,40 +13,40 @@ targets:
     install:
       - apt-get update -qq
       - apt-get upgrade -y -qq
-      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig -y -qq
+      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig firefox -y -qq
   fedora:
     tags:
       - "22"
       - "23"
     install:
       - dnf update -y -q
-      - dnf install @development-tools node npm bzip2 tar fontconfig freetype -y -q
+      - dnf install @development-tools node npm bzip2 tar fontconfig freetype firefox -y -q
   centos:
     tags:
       - "7"
     install:
       - yum update -y -q
       - yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{tag}}.noarch.rpm -y -q
-      - yum install @development nodejs npm bzip2 tar fontconfig freetype -y -q
+      - yum install @development nodejs npm bzip2 tar fontconfig freetype firefox -y -q
   opensuse:
     tags:
       - "13.2"
     install:
       - zypper -n update
-      - zypper -n install gcc gcc-c++ make git nodejs npm bzip2 tar fontconfig freetype ca-certificates-mozilla
+      - zypper -n install gcc gcc-c++ make git nodejs npm bzip2 tar fontconfig freetype ca-certificates-mozilla firefox
   debian:
     tags:
       - "8"
     install:
       - apt-get update -qq
       - apt-get upgrade -y -qq
-      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig -y -qq
+      - apt-get install build-essential git nodejs nodejs-legacy npm bzip2 tar libfreetype6 libfontconfig firefox -y -qq
   arch:
     tags:
       - "latest"
     image: l3iggs/archlinux
     install:
       - pacman -Syu --noconfirm
-      - pacman -S base-devel git nodejs npm bzip2 tar fontconfig freetype2 python2 python --noconfirm
+      - pacman -S base-devel git nodejs npm bzip2 tar fontconfig freetype2 python2 python firefox --noconfirm
     env:
       - GHOST_NODE_VERSION_CHECK=false
