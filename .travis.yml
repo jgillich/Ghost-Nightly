@@ -3,6 +3,7 @@ sudo: required
 services:
   - docker
 install:
+  - npm install -g npm@latest
   - npm install -g chimera-cli
   - git clone https://github.com/TryGhost/Ghost.git --depth 1 --recursive
 script:
